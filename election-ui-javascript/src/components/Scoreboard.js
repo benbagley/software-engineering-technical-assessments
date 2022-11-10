@@ -3,7 +3,7 @@ import Logo from './logo/logo';
 import fetchData from '../dataFetcher';
 import Scorecard from './Scorecard';
 import './Scoreboard.css';
-import PartyLinks from "./PartyLinks";
+import PartyLinks from './PartyLinks';
 
 function Scoreboard() {
   const [loading, setLoading] = useState(true);
@@ -14,7 +14,7 @@ function Scoreboard() {
     try {
       setLoading(true);
       const resultData = await fetchData();
-      setResults(resultData.results);
+      setResults(resultData);
       setLoading(false);
     } catch (e) {
       setLoading(false);
@@ -26,23 +26,36 @@ function Scoreboard() {
     getData();
   }, []);
 
+  function refreshData() {
+    getData();
+  }
+
   return (
     <div className="Scoreboard">
       <header className="Election-scoreboard-header">
         <Logo language="en" />
       </header>
       <main>
-        {
-          loading ? <h2>Loading...</h2> :
-          error ? <h1>Error</h1> :
+        {loading ? (
+          <h2>Loading...</h2>
+        ) : error ? (
+          <h1>Error</h1>
+        ) : (
           <>
-            <h1>Results</h1>
+            <h1>
+              Results {results.partyData.isComplete && '| counting completed'}
+            </h1>
             <Scorecard results={results} />
-            <a className="Scoreboard-refresh">Refresh</a>
-            <h1>Learn more about the parties...</h1>
-            <PartyLinks />
+            <button className="Scoreboard-refresh" onClick={refreshData}>
+              Refresh
+            </button>
+
+            <div className="parties">
+              <h1>Learn more about the parties...</h1>
+              <PartyLinks />
+            </div>
           </>
-        }
+        )}
       </main>
     </div>
   );

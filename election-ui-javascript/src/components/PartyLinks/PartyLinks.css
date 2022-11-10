@@ -1,3 +1,24 @@
+.parties h1 {
+  margin-bottom: 2.5rem;
+}
+
 .Party-links {
-  color: red;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 1rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.Party-link {
+  border: 3px solid var(--bbcRed);
+  list-style: none;
+  padding: 1rem;
+}
+
+.Party-link:hover {
+  transform: scale(110%);
+}
+
+.Party-link a {
+  color: black;
 }

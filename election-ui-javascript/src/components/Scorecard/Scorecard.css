@@ -12,10 +12,14 @@
 }
 
 .Scorecard-table thead {
-  background-color: #bb1919;
+  background-color: var(--bbcRed);
   color: white;
 }
 
 .Scorecard-table tbody tr:nth-of-type(2n + 1) {
   background-color: white;
+}
+
+.winner {
+  background-color: yellow !important;
 }

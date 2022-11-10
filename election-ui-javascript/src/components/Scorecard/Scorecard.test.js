@@ -1,13 +1,24 @@
 import { render, screen } from '@testing-library/react';
 import Scorecard from '.';
 
-const results = [
-  {
-    'party': 'Green',
-    'candidateId': 2,
-    'votes': '1056'
-  }
-];
+const results = {
+  candidateData: [
+    {
+      id: 2,
+      name: 'John Doe',
+    },
+  ],
+  partyData: {
+    isComplete: false,
+    results: [
+      {
+        party: 'Green',
+        candidateId: 2,
+        votes: '1056',
+      },
+    ],
+  },
+};
 
 test('renders results', async () => {
   render(<Scorecard results={results} />);

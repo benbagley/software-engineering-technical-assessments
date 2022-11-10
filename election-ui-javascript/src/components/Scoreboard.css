@@ -8,7 +8,7 @@
 }
 
 .Election-scoreboard-header {
-  background-color: #bb1919;
+  background-color: var(--bbcRed);
   min-height: 10vh;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@ main {
 
 .Scoreboard-refresh {
   padding: 1rem;
-  border: 3px solid #bb1919;
+  border: 3px solid var(--bbcRed);
   margin-top: 1rem;
   display: inline-block;
   cursor: pointer;
@@ -34,6 +34,6 @@ main {
 }
 
 .Scoreboard-refresh:hover {
-  background-color: #bb1919;
+  background-color: var(--bbcRed);
   color: white;
 }
